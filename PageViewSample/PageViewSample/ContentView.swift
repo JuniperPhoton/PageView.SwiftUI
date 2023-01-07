@@ -8,48 +8,14 @@
 import SwiftUI
 import PageView
 
-protocol Page: Equatable, Identifiable, Hashable {
-    var id: String { get }
-}
-
-class PageClass: Page {
-    open var id: String {
-        return "base"
-    }
+enum Page: String, Equatable, Identifiable, Hashable {
+    case new = "New"
+    case featured = "Featured"
+    case random = "Random"
     
-    static func == (lhs: PageClass, rhs: PageClass) -> Bool {
-        return lhs.id == rhs.id
+    var id: String {
+        return self.rawValue
     }
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
-    }
-}
-
-class FirstPage: PageClass {
-    override var id: String {
-        return "first"
-    }
-}
-
-class SecondPage: PageClass {
-    override var id: String {
-        return "second"
-    }
-}
-
-class ThirdPage: PageClass {
-    override var id: String {
-        return "third"
-    }
-}
-
-class DataViewModel: ObservableObject {
-    @Published var pages: [PageClass] = [
-        FirstPage(),
-        SecondPage(),
-        ThirdPage()
-    ]
 }
 
 enum Tabs: String, Hashable {
@@ -74,12 +40,16 @@ struct PageViewSample: View {
                 Label(Tabs.downloaded.rawValue, systemImage: "square.and.arrow.down")
             }
             VStack {
-                BannerView2()
+                BannerView()
             }.tabItem {
                 Label(Tabs.profile.rawValue, systemImage: "person")
             }
         }
     }
+}
+
+class DataViewModel: ObservableObject {
+    @Published var pages: [Page] = [.new, .featured, .random]
 }
 
 struct Pages: View {
@@ -145,7 +115,7 @@ class Banner: Equatable, Identifiable {
     }
 }
 
-struct BannerView2: View {
+struct BannerView: View {
     @State var items: [Banner] = [
         Banner(imageUrl: "https://images.unsplash.com/photo-1673082797735-f994d6120ded?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80", author: "John"),
         Banner(imageUrl: "https://images.unsplash.com/photo-1671725779253-0a5a067cfac4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80", author: "Mike"),
