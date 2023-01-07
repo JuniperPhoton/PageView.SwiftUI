@@ -2,7 +2,7 @@
 
 ![](./Doc/hero-image.gif)
 
-A container view that provides paging  with virtualization feature, being implemented purely in `SwiftUI` using `HStack` and `DragGesture` internally. 
+A container view that provides paging  with virtualization/lazy loading feature, being implemented purely in `SwiftUI` using `HStack` and `DragGesture` internally. 
 
 PageView takes care of the views displaying in the screen, and will discard the views offscreen(which is defined by ``offscreenCountPerSide``).
 
@@ -66,7 +66,7 @@ First please refer to the initializer of the ``PageView``.
 - Parameter `items`: items to be populated, should be a ``RandomAccessCollection``
 - Parameter `pageIndex`: a binding to the current page index
 - Parameter `disablePaging`: a binding to disable the paging. Set this to true will disable the gesture, you can still set the ``pageIndex`` to navigate to the specified page
-- Parameter offscreenCountPerSide: effects how many Views will be on screen at the same time. The default value is 2, which makes ``1 + 2 * 2 = 5`` views. Your ``items`` could be as large as you want, and keep this ``offscreenCountPerSide`` small to help reduce your memory footage.
+- Parameter `offscreenCountPerSide`: effects how many Views will be on screen at the same time. The default value is 2, which makes ``1 + 2 * 2 = 5`` views. Your ``items`` could be as large as you want, and keep this ``offscreenCountPerSide`` small to help reduce your memory footage.
 - Parameter `spacing`: spacing between pages, horizontally. Note that the spacing won't be see until users start swiping
 - Parameter `scrollSlop`: how much pts the user swipe to navigate to the next page, default to 20pt
 - Parameter `animationDuration`: animation duration, default to 0.3 seconds
