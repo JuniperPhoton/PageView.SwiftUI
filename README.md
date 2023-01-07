@@ -105,3 +105,7 @@ app current translation is 0 -> 1, Progress: 0.20610687022900764
 app current translation is 0 -> 1, Progress: 0.24173027989821882
 app current translation is 0 -> 1, Progress: 1.0
 ```
+
+## Example
+
+This repo includes a example app, navigate to [this](https://github.com/JuniperPhoton/PageView.SwiftUI/tree/main/PageViewSample) to know more.
