@@ -23,6 +23,11 @@ public struct PagingTranslation: CustomStringConvertible, Equatable {
     }
 }
 
+public enum PagingAxis {
+    case horizontal
+    case vertical
+}
+
 /// A container view providing paging  with virtualization feature.
 ///
 /// PageView takes care of the views displaying in the screen, and will discard the views offscreen(which is defined by ``offscreenCountPerSide``.
@@ -37,8 +42,9 @@ public struct PageView<Content: View, C: RandomAccessCollection>: View where C.E
     let pageIndex: Binding<Int>
     
     let disablePaging: Binding<Bool>
+    let onPageTranslationChanged: ((PagingTranslation) -> Void)?
+    let axis: PagingAxis
     
-    var onPageTranslationChanged: ((PagingTranslation) -> Void)? = nil
     
     @GestureState var dragTranslationX: CGFloat = 0
     
@@ -66,6 +72,7 @@ public struct PageView<Content: View, C: RandomAccessCollection>: View where C.E
     /// - Parameter items: items to be populated, should be a ``RandomAccessCollection``
     /// - Parameter pageIndex: a binding to the current page index
     /// - Parameter disablePaging: a binding to disable the paging. Set this to true will disable the gesture, you can still set the ``pageIndex`` to navigate to the specified page
+    /// - Parameter axis: the direction of paging, default to horizontal
     /// - Parameter offscreenCountPerSide: effects how many Views will be on screen at the same time. The default value is 2, which makes ``1 + 2 * 2 = 5`` views. Your ``items`` could be as large as you want, and keep this ``offscreenCountPerSide`` small to help reduce your memory footage.
     /// - Parameter spacing: spacing between pages, horizontally. Note that the spacing won't be see until users start swiping
     /// - Parameter scrollSlop: how much pts the user swipe to navigate to the next page, default to 20pt
@@ -75,6 +82,7 @@ public struct PageView<Content: View, C: RandomAccessCollection>: View where C.E
     public init(items: C,
                 pageIndex: Binding<Int>,
                 disablePaging: Binding<Bool>,
+                axis: PagingAxis = .horizontal,
                 offscreenCountPerSide: Int = 2,
                 spacing: CGFloat = 20,
                 scrollSlop: CGFloat = 20,
@@ -84,6 +92,7 @@ public struct PageView<Content: View, C: RandomAccessCollection>: View where C.E
         self.items = items
         self.itemContent = itemContent
         self.pageIndex = pageIndex
+        self.axis = axis
         self.disablePaging = disablePaging
         self.offscreenCountPerSide = offscreenCountPerSide
         self.spacing = spacing
