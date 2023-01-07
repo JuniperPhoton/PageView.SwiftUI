@@ -11,7 +11,6 @@
 		22F6ED012969A146002D0A16 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F6ED002969A146002D0A16 /* ContentView.swift */; };
 		22F6ED032969A146002D0A16 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22F6ED022969A146002D0A16 /* Assets.xcassets */; };
 		22F6ED072969A146002D0A16 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22F6ED062969A146002D0A16 /* Preview Assets.xcassets */; };
-		22F6ED102969A193002D0A16 /* PageView in Frameworks */ = {isa = PBXBuildFile; productRef = 22F6ED0F2969A193002D0A16 /* PageView */; };
 		22F6ED132969A2CA002D0A16 /* PageView in Frameworks */ = {isa = PBXBuildFile; productRef = 22F6ED122969A2CA002D0A16 /* PageView */; };
 /* End PBXBuildFile section */
 
@@ -30,7 +29,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				22F6ED132969A2CA002D0A16 /* PageView in Frameworks */,
-				22F6ED102969A193002D0A16 /* PageView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,7 +96,6 @@
 			);
 			name = PageViewSample;
 			packageProductDependencies = (
-				22F6ED0F2969A193002D0A16 /* PageView */,
 				22F6ED122969A2CA002D0A16 /* PageView */,
 			);
 			productName = PageViewSample;
@@ -386,10 +383,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		22F6ED0F2969A193002D0A16 /* PageView */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = PageView;
-		};
 		22F6ED122969A2CA002D0A16 /* PageView */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 22F6ED112969A2CA002D0A16 /* XCRemoteSwiftPackageReference "PageView" */;

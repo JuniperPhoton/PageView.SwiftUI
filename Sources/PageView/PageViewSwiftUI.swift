@@ -89,7 +89,7 @@ public struct PageView<Content: View, C: RandomAccessCollection>: View where C.E
         self.scrollSlop = scrollSlop
         self.animationDuration = animationDuration
         self.onPageTranslationChanged = onPageTranslationChanged
-        print("dwccc start page index \(pageIndex), disable paging \(disablePaging)")
+        print("start page index \(pageIndex), disable paging \(disablePaging)")
     }
     
     private func calculateDisplayItems(originalIndex: Int) {
@@ -109,7 +109,7 @@ public struct PageView<Content: View, C: RandomAccessCollection>: View where C.E
             }
         }
         
-        print("dwccc calculateDisplayItems \(start)...\(end), virtualPageIndex \(virtualPageIndex), current input \(originalIndex)")
+        print("calculateDisplayItems \(start)...\(end), virtualPageIndex \(virtualPageIndex), current input \(originalIndex)")
     }
     
     public var body: some View {
@@ -179,7 +179,7 @@ public struct PageView<Content: View, C: RandomAccessCollection>: View where C.E
                 newVirtualIndex = index
             }
             
-            print("dwccc on gesture end newVirtualIndex: \(newVirtualIndex), from virtualPageIndex \(virtualPageIndex)")
+            print("on gesture end newVirtualIndex: \(newVirtualIndex), from virtualPageIndex \(virtualPageIndex)")
             
             self.virtualPageIndex = newVirtualIndex
             self.translationX = 0

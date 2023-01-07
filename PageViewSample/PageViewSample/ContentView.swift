@@ -78,7 +78,7 @@ struct Pages: View {
                 PageView(items: viewModel.pages,
                          pageIndex: $pageIndex,
                          disablePaging: $disablePaging,
-                         animationDuration: 0.3,
+                         spacing: 0, animationDuration: 0.3,
                          onPageTranslationChanged: { translation in
                     print("app current translation is \(translation)")
                     self.translation = translation
