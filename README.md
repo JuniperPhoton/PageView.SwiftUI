@@ -1,2 +1,3 @@
-# PageView.SwiftUI
-A PageView written in SwiftUI.
+# PageViewSwiftUI
+
+A description of this package.
