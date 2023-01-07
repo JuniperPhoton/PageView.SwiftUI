@@ -15,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		221D91022969AAF600CB7A44 /* PageView.SwiftUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = PageView.SwiftUI; path = ..; sourceTree = "<group>"; };
 		22F6ECFB2969A146002D0A16 /* PageViewSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PageViewSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22F6ECFE2969A146002D0A16 /* PageViewSampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewSampleApp.swift; sourceTree = "<group>"; };
 		22F6ED002969A146002D0A16 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -38,6 +39,7 @@
 		22F6ECF22969A145002D0A16 = {
 			isa = PBXGroup;
 			children = (
+				221D91022969AAF600CB7A44 /* PageView.SwiftUI */,
 				22F6ECFD2969A146002D0A16 /* PageViewSample */,
 				22F6ECFC2969A146002D0A16 /* Products */,
 				22F6ED0E2969A193002D0A16 /* Frameworks */,
