@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "pageview.swiftui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/JuniperPhoton/PageView.SwiftUI",
+      "state" : {
+        "branch" : "main",
+        "revision" : "0d2763f5b61ac02117ac7ad3ac60707e9cafaff5"
+      }
+    }
+  ],
+  "version" : 2
+}

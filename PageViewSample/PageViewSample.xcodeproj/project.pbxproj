@@ -12,6 +12,7 @@
 		22F6ED032969A146002D0A16 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22F6ED022969A146002D0A16 /* Assets.xcassets */; };
 		22F6ED072969A146002D0A16 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22F6ED062969A146002D0A16 /* Preview Assets.xcassets */; };
 		22F6ED102969A193002D0A16 /* PageView in Frameworks */ = {isa = PBXBuildFile; productRef = 22F6ED0F2969A193002D0A16 /* PageView */; };
+		22F6ED132969A2CA002D0A16 /* PageView in Frameworks */ = {isa = PBXBuildFile; productRef = 22F6ED122969A2CA002D0A16 /* PageView */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,7 +22,6 @@
 		22F6ED022969A146002D0A16 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		22F6ED042969A146002D0A16 /* PageViewSample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PageViewSample.entitlements; sourceTree = "<group>"; };
 		22F6ED062969A146002D0A16 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		22F6ED0D2969A174002D0A16 /* PageViewSwiftUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = PageViewSwiftUI; path = ../PageViewSwiftUI; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +29,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22F6ED132969A2CA002D0A16 /* PageView in Frameworks */,
 				22F6ED102969A193002D0A16 /* PageView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -39,7 +40,6 @@
 		22F6ECF22969A145002D0A16 = {
 			isa = PBXGroup;
 			children = (
-				22F6ED0D2969A174002D0A16 /* PageViewSwiftUI */,
 				22F6ECFD2969A146002D0A16 /* PageViewSample */,
 				22F6ECFC2969A146002D0A16 /* Products */,
 				22F6ED0E2969A193002D0A16 /* Frameworks */,
@@ -99,6 +99,7 @@
 			name = PageViewSample;
 			packageProductDependencies = (
 				22F6ED0F2969A193002D0A16 /* PageView */,
+				22F6ED122969A2CA002D0A16 /* PageView */,
 			);
 			productName = PageViewSample;
 			productReference = 22F6ECFB2969A146002D0A16 /* PageViewSample.app */;
@@ -128,6 +129,9 @@
 				Base,
 			);
 			mainGroup = 22F6ECF22969A145002D0A16;
+			packageReferences = (
+				22F6ED112969A2CA002D0A16 /* XCRemoteSwiftPackageReference "PageView" */,
+			);
 			productRefGroup = 22F6ECFC2969A146002D0A16 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -370,9 +374,25 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		22F6ED112969A2CA002D0A16 /* XCRemoteSwiftPackageReference "PageView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JuniperPhoton/PageView.SwiftUI";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		22F6ED0F2969A193002D0A16 /* PageView */ = {
 			isa = XCSwiftPackageProductDependency;
+			productName = PageView;
+		};
+		22F6ED122969A2CA002D0A16 /* PageView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 22F6ED112969A2CA002D0A16 /* XCRemoteSwiftPackageReference "PageView" */;
 			productName = PageView;
 		};
 /* End XCSwiftPackageProductDependency section */
