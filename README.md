@@ -4,7 +4,7 @@
 
 A container view that provides paging  with virtualization feature, being implemented purely in `SwiftUI` using `HStack` and `DragGesture` internally. 
 
-PageView takes care of the views displaying in the screen, and will discard the views offscreen(which is defined by ``offscreenCountPerSide``.
+PageView takes care of the views displaying in the screen, and will discard the views offscreen(which is defined by ``offscreenCountPerSide``).
 
 Users can swipe horizontally to switch pages. You provides ``pageIndex`` binding to get or set the current page.
 
