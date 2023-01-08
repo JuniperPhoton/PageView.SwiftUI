@@ -156,6 +156,7 @@ public struct PageView<Content: View, C: RandomAccessCollection>: View where C.E
         }
         .onChange(of: pageIndex.wrappedValue, perform: { newValue in
             withEastOutAnimation(duration: animationDuration) {
+                calculateDisplayItems(originalIndex: newValue)
                 updateVirtualPageIndex(originalIndex: newValue)
             }
         })
