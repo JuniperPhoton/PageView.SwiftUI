@@ -114,7 +114,8 @@ public struct PageView<Content: View, C: RandomAccessCollection>: View where C.E
     }
     
     public var body: some View {
-        let gesture = DragGesture()
+        // Note that minimumDistance seems not work in real iPhone & iPad in iOS 16.2
+        let gesture = DragGesture(minimumDistance: .zero, coordinateSpace: .global)
             .onEnded { value in
                 onGestureEnd(value: value)
             }
