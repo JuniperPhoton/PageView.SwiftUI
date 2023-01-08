@@ -8,17 +8,18 @@
 import SwiftUI
 import PageView
 
-enum Page: String, Equatable, Identifiable, Hashable {
+enum Page: String, Equatable, Identifiable, Hashable, CaseIterable {
     case new = "New"
     case featured = "Featured"
     case random = "Random"
+    case search = "Search"
     
     var id: String {
         return self.rawValue
     }
 }
 
-enum Tabs: String, Hashable {
+enum Tabs: String, Hashable, CaseIterable {
     case new = "New"
     case downloaded = "Downloaded"
     case profile = "Profile"
@@ -48,13 +49,7 @@ struct PageViewSample: View {
     }
 }
 
-class DataViewModel: ObservableObject {
-    @Published var pages: [Page] = [.new, .featured, .random]
-}
-
 struct Pages: View {
-    @ObservedObject var viewModel = DataViewModel()
-    
     @State var disablePaging = false
     @State var pageIndex = 0
     @State var translation = PagingTranslation(currentIndex: 0, nextIndex: 0, progress: 0)
@@ -63,19 +58,19 @@ struct Pages: View {
         NavigationView {
             VStack(alignment: .leading) {
                 HStack {
-                    ForEach(viewModel.pages, id: \.id) { page in
+                    ForEach(Page.allCases, id: \.id) { page in
                         Text(page.id.uppercased()).bold()
                             .foregroundColor(Color.accentColor)
-                            .opacity(viewModel.pages.firstIndex(of: page) == self.pageIndex ? 1.0 : 0.3)
+                            .opacity(Page.allCases.firstIndex(of: page) == self.pageIndex ? 1.0 : 0.3)
                             .onTapGesture {
-                                if let index = viewModel.pages.firstIndex(of: page) {
+                                if let index = Page.allCases.firstIndex(of: page) {
                                     self.pageIndex = index
                                 }
                             }
                     }
                 }.padding()
                 
-                PageView(items: viewModel.pages,
+                PageView(items: Page.allCases,
                          pageIndex: $pageIndex,
                          disablePaging: $disablePaging,
                          spacing: 0, animationDuration: 0.3,
