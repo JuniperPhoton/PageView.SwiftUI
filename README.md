@@ -10,6 +10,8 @@ Users can swipe horizontally to switch pages. You provides ``pageIndex`` binding
 
 To get more paging info like paging progress, you pass the ``onPageTranslationChanged`` block and you will get noticed when paging translation changed.
 
+> NOTE: If you just need a container view as a navigating root view with swiping to switch pages, you can just use the official ``TabView`` with .page `TabViewStyle`. However, if you want to display a large amount of data, this ``PageView`` is for you since it has virtualization/lazy loading feature.
+
 ## Import using Swift Package
 
 ![](./Doc/xcode-setup.jpg)
@@ -109,3 +111,8 @@ app current translation is 0 -> 1, Progress: 1.0
 ## Example
 
 This repo includes a example app, navigate to [this](https://github.com/JuniperPhoton/PageView.SwiftUI/tree/main/PageViewSample) to know more.
+
+## Limitations
+
+There are some limitations which are about to be resolved(perhaps we don't have enough API to do this):
+- Inside the ``PageView``, you can put a SwiftUI ``List`` and it works fine. But if you put a ``ScrollView`` with grids or stacks, ``PageView`` would take over the gesture and the ``ScrollView`` can't be scrolled. Currently SwiftUI can't handle the conflict of your custom gesture with other built-in views'.
