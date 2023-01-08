@@ -74,7 +74,7 @@ public struct PageView<Content: View, C: RandomAccessCollection>: View where C.E
     /// - Parameter itemContent: provides ``View`` given a ``C.Element`` you passed in the ``items``
     public init(items: C,
                 pageIndex: Binding<Int>,
-                disablePaging: Binding<Bool>,
+                disablePaging: Binding<Bool> = .constant(false),
                 offscreenCountPerSide: Int = 2,
                 spacing: CGFloat = 20,
                 scrollSlop: CGFloat = 20,
