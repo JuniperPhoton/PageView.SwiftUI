@@ -12,6 +12,10 @@ struct PageViewSampleApp: App {
     var body: some Scene {
         WindowGroup {
             PageViewSample()
+#if os(macOS)
+                .frame(minWidth: 600, minHeight: 500)
+#endif
         }
+        
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22E819AF298FFC21005DE633 /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = 22E819AE298FFC21005DE633 /* NukeUI */; };
 		22F6ECFF2969A146002D0A16 /* PageViewSampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F6ECFE2969A146002D0A16 /* PageViewSampleApp.swift */; };
 		22F6ED012969A146002D0A16 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F6ED002969A146002D0A16 /* ContentView.swift */; };
 		22F6ED032969A146002D0A16 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22F6ED022969A146002D0A16 /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22F6ED132969A2CA002D0A16 /* PageView in Frameworks */,
+				22E819AF298FFC21005DE633 /* NukeUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +101,7 @@
 			name = PageViewSample;
 			packageProductDependencies = (
 				22F6ED122969A2CA002D0A16 /* PageView */,
+				22E819AE298FFC21005DE633 /* NukeUI */,
 			);
 			productName = PageViewSample;
 			productReference = 22F6ECFB2969A146002D0A16 /* PageViewSample.app */;
@@ -130,6 +133,7 @@
 			mainGroup = 22F6ECF22969A145002D0A16;
 			packageReferences = (
 				22F6ED112969A2CA002D0A16 /* XCRemoteSwiftPackageReference "PageView" */,
+				22E819AD298FFC21005DE633 /* XCRemoteSwiftPackageReference "NukeUI" */,
 			);
 			productRefGroup = 22F6ECFC2969A146002D0A16 /* Products */;
 			projectDirPath = "";
@@ -374,6 +378,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		22E819AD298FFC21005DE633 /* XCRemoteSwiftPackageReference "NukeUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/NukeUI";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		22F6ED112969A2CA002D0A16 /* XCRemoteSwiftPackageReference "PageView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/JuniperPhoton/PageView.SwiftUI";
@@ -385,6 +397,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		22E819AE298FFC21005DE633 /* NukeUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 22E819AD298FFC21005DE633 /* XCRemoteSwiftPackageReference "NukeUI" */;
+			productName = NukeUI;
+		};
 		22F6ED122969A2CA002D0A16 /* PageView */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 22F6ED112969A2CA002D0A16 /* XCRemoteSwiftPackageReference "PageView" */;
