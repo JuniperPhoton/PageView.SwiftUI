@@ -4,6 +4,8 @@
 
 A container view that provides paging  with virtualization/lazy loading feature, being implemented purely in `SwiftUI` using `HStack` and `DragGesture` internally. 
 
+> Since it's SwiftUI native view, it supports iOS, iPadOS and macOS.
+
 PageView takes care of the views displaying in the screen, and will discard the views offscreen(which is defined by ``offscreenCountPerSide``).
 
 Users can swipe horizontally to switch pages. You provides ``pageIndex`` binding to get or set the current page.
