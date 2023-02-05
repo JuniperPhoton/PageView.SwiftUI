@@ -1,6 +1,6 @@
 # PageView.SwiftUI
 
-![](./Doc/hero-image.gif)
+<img width="969" alt="Screenshot 2023-02-05 at 23 13 55" src="https://user-images.githubusercontent.com/7578386/216827771-515ef235-f476-4795-94a6-f5748f016146.png">
 
 A container view that provides paging  with virtualization/lazy loading feature, being implemented purely in `SwiftUI` using `HStack` and `DragGesture` internally. 
 
