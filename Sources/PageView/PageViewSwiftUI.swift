@@ -114,6 +114,7 @@ public struct PageView<Content: View, C: RandomAccessCollection>: View where C.E
     }
     
     public var body: some View {
+        #if !os(tvOS)
         // Note that minimumDistance seems not work in real iPhone & iPad in iOS 16.2
         let gesture = DragGesture(minimumDistance: .zero, coordinateSpace: .global)
             .onEnded { value in
@@ -122,6 +123,8 @@ public struct PageView<Content: View, C: RandomAccessCollection>: View where C.E
             .updating($dragTranslationX) { v, state, _ in
                 state = v.translation.width
             }
+        #endif
+        
         GeometryReader { proxy in
             HStack(spacing: spacing) {
                 ForEach(displayedItems, id: \.id) { item in
@@ -133,7 +136,9 @@ public struct PageView<Content: View, C: RandomAccessCollection>: View where C.E
             .offset(x: (-CGFloat(virtualPageIndex) * (proxy.size.width + spacing)) + translationX)
         }
         .contentShape(Rectangle())
+        #if !os(tvOS)
         .simultaneousGesture(gesture, including: disablePaging.wrappedValue ? .subviews : .all)
+        #endif
         .onAppear {
             calculateDisplayItems(originalIndex: pageIndex.wrappedValue)
             updateVirtualPageIndex(originalIndex: pageIndex.wrappedValue)
@@ -165,6 +170,7 @@ public struct PageView<Content: View, C: RandomAccessCollection>: View where C.E
         }
     }
     
+    #if !os(tvOS)
     private func onGestureEnd(value: DragGesture.Value) {
         withEastOutAnimation(duration: animationDuration) {
             var newVirtualIndex = virtualPageIndex
@@ -205,6 +211,7 @@ public struct PageView<Content: View, C: RandomAccessCollection>: View where C.E
             }
         }
     }
+    #endif
     
     private func updateVirtualPageIndex(originalIndex: Int) {
         if originalIndex != 0 && originalIndex != items.count - 1  {
