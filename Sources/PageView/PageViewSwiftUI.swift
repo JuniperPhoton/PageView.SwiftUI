@@ -31,9 +31,10 @@ public struct PagingTranslation: CustomStringConvertible, Equatable {
 /// To get more paging info like paging progress, you pass the ``onPageTranslationChanged`` block and you will get noticed when paging translation changed.
 ///
 /// See the initializer to know more customations.
-public struct PageView<Content: View, C: RandomAccessCollection>: View where C.Element: Identifiable & Equatable {
-    let items: C
-    let itemContent: (C.Element) -> Content
+public struct PageView<Content: View, Data: RandomAccessCollection>: View where Data: Equatable & Hashable,
+                                                                                Data.Element: Identifiable & Equatable {
+    let items: Data
+    let itemContent: (Data.Element) -> Content
     let pageIndex: Binding<Int>
     
     let disablePaging: Binding<Bool>
@@ -45,7 +46,7 @@ public struct PageView<Content: View, C: RandomAccessCollection>: View where C.E
     @State var translationX: CGFloat = 0
     @State var virtualPageIndex: CGFloat = 0
     
-    @State var displayedItemId: C.Element.ID? = nil {
+    @State var displayedItemId: Data.Element.ID? = nil {
         didSet {
             if let originalIndex = items.firstIndex(where: { v in
                 v.id == displayedItemId
@@ -55,7 +56,7 @@ public struct PageView<Content: View, C: RandomAccessCollection>: View where C.E
         }
     }
     
-    @State var displayedItems: [C.Element] = []
+    @State var displayedItems: [Data.Element] = []
     @State var width: CGFloat = 0.0
     
     private let offscreenCountPerSide: Int
@@ -71,8 +72,8 @@ public struct PageView<Content: View, C: RandomAccessCollection>: View where C.E
     /// - Parameter scrollSlop: how much pts the user swipe to navigate to the next page, default to 20pt
     /// - Parameter animationDuration: animation duration, default to 0.3 seconds
     /// - Parameter onPageTranslationChanged: when the user start swiping, this block will be invoked to provide information about paging translation. See ``PagingTranslation`` to know more.
-    /// - Parameter itemContent: provides ``View`` given a ``C.Element`` you passed in the ``items``
-    public init(items: C,
+    /// - Parameter itemContent: provides ``View`` given a ``Data.Element`` you passed in the ``items``
+    public init(items: Data,
                 pageIndex: Binding<Int>,
                 disablePaging: Binding<Bool> = .constant(false),
                 offscreenCountPerSide: Int = 2,
@@ -80,7 +81,7 @@ public struct PageView<Content: View, C: RandomAccessCollection>: View where C.E
                 scrollSlop: CGFloat = 20,
                 animationDuration: CGFloat = 0.3,
                 onPageTranslationChanged: ((PagingTranslation) -> Void)? = nil,
-                @ViewBuilder itemContent: @escaping (C.Element) -> Content) {
+                @ViewBuilder itemContent: @escaping (Data.Element) -> Content) {
         self.items = items
         self.itemContent = itemContent
         self.pageIndex = pageIndex
@@ -110,7 +111,7 @@ public struct PageView<Content: View, C: RandomAccessCollection>: View where C.E
             }
         }
         
-        print("calculateDisplayItems \(start)...\(end), virtualPageIndex \(virtualPageIndex), current input \(originalIndex)")
+        print("calculateDisplayItems \(start)...\(end), from items \(items.count) virtualPageIndex \(virtualPageIndex), current input \(originalIndex)")
     }
     
     public var body: some View {
@@ -168,6 +169,7 @@ public struct PageView<Content: View, C: RandomAccessCollection>: View where C.E
         .listenWidthChanged { width in
             self.width = width
         }
+        .id(items)
     }
     
     #if !os(tvOS)
