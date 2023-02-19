@@ -12,7 +12,9 @@ Users can swipe horizontally to switch pages. You provides ``pageIndex`` binding
 
 To get more paging info like paging progress, you pass the ``onPageTranslationChanged`` block and you will get noticed when paging translation changed.
 
-> NOTE: If you just need a container view as a navigating root view with swiping to switch pages, you can just use the official ``TabView`` with .page `TabViewStyle`. However, if you want to display a large amount of data, this ``PageView`` is for you since it has virtualization/lazy loading feature.
+> NOTE: On iOS, iPadOS and tvOS, if you just need a container view as a navigating root view with swiping to switch pages, you can just use the official ``TabView`` with .page `TabViewStyle`. However, if you want to display a large amount of data, this ``PageView`` is for you since it has virtualization/lazy loading feature.
+
+> NOTE: DragGesture doesn't support Mac's TrackPad, so if you need to support scrolling by TrackPad, you must use `NSPageController` to implement this. I make a `NSPageView` based on `NSPageController`, see https://github.com/JuniperPhoton/MyerLibApple/blob/main/Sources/MyerView/Mac/NSPageView.swift for more.
 
 ## Import using Swift Package
 
