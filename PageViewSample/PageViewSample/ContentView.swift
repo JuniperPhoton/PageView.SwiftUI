@@ -34,7 +34,7 @@ struct PageViewSample: View {
     }
 }
 
-class Banner: Equatable, Identifiable {
+class Banner: Equatable, Identifiable, Hashable {
     static func == (lhs: Banner, rhs: Banner) -> Bool {
         return lhs.imageUrl == rhs.imageUrl
     }
@@ -45,6 +45,10 @@ class Banner: Equatable, Identifiable {
     init(imageUrl: String, name: String) {
         self.imageUrl = imageUrl
         self.name = name
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(imageUrl)
     }
 }
 
