@@ -114,7 +114,7 @@ app current translation is 0 -> 1, Progress: 1.0
 
 ## Example
 
-This repo includes a example app, navigate to [this](https://github.com/JuniperPhoton/PageView.SwiftUI/tree/main/PageViewSample) to know more.
+This repo includes an example, please navigate to [this](https://github.com/JuniperPhoton/PageView.SwiftUI/tree/main/PageViewSample) to know more.
 
 ## Limitations
 
