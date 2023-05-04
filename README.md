@@ -4,17 +4,17 @@
 
 A container view that provides paging  with virtualization/lazy loading feature, being implemented purely in `SwiftUI` using `HStack` and `DragGesture` internally. 
 
-> Since it's SwiftUI native view, it supports iOS, iPadOS and macOS.
+> Since it's a native view from SwiftUI, it supports iOS, iPadOS and macOS.
 
-PageView takes care of the views displaying in the screen, and will discard the views offscreen(which is defined by ``offscreenCountPerSide``).
+PageView takes care of the views displaying in the screen, and will discard the views when they are offscreen, which is defined by ``offscreenCountPerSide``.
 
 Users can swipe horizontally to switch pages. You provides ``pageIndex`` binding to get or set the current page.
 
-To get more paging info like paging progress, you pass the ``onPageTranslationChanged`` block and you will get noticed when paging translation changed.
+To get more paging info such as paging progress, you pass the ``onPageTranslationChanged`` block and you will get noticed when paging translation changed.
 
 > NOTE: On iOS, iPadOS and tvOS, if you just need a container view as a navigating root view with swiping to switch pages, you can just use the official ``TabView`` with .page `TabViewStyle`. However, if you want to display a large amount of data, this ``PageView`` is for you since it has virtualization/lazy loading feature.
 
-> NOTE: DragGesture doesn't support Mac's TrackPad, so if you need to support scrolling by TrackPad, you must use `NSPageController` to implement this. I make a `NSPageView` based on `NSPageController`, see https://github.com/JuniperPhoton/MyerLibApple/blob/main/Sources/MyerView/Mac/NSPageView.swift for more.
+> NOTE: `DragGesture` doesn't support Mac's TrackPad, so if you need to support swiping-to-scroll by TrackPad, you must use `NSPageController` to implement this. I make a `NSPageView` based on `NSPageController`, see https://github.com/JuniperPhoton/MyerLibApple/blob/main/Sources/MyerView/Mac/NSPageView.swift for more.
 
 ## Import using Swift Package
 
@@ -48,7 +48,7 @@ PageView(items: items,
 }
 ```
 
-The example above achieve the following feature:
+The example above achieves the following feature:
 
 ![](./Doc/preview-banner.jpg)
 
