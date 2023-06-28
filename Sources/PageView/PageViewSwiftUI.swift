@@ -113,8 +113,9 @@ public struct PageView<Content: View, Data: RandomAccessCollection>: View where 
     
     public var body: some View {
         #if !os(tvOS)
-        // Note that minimumDistance seems not work in real iPhone & iPad in iOS 16.2
-        let gesture = DragGesture(minimumDistance: .zero, coordinateSpace: .global)
+        // Note that `minimumDistance` seems not work in real iPhone & iPad in iOS 16.2.
+        // We use the default value of `minimumDistance` to prevent gesture conflict.
+        let gesture = DragGesture(coordinateSpace: .global)
             .onEnded { value in
                 onGestureEnd(value: value)
             }
