@@ -1,30 +1,12 @@
 {
   "pins" : [
     {
-      "identity" : "gifu",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/kaishin/Gifu",
-      "state" : {
-        "revision" : "c8c8cd8e98eb73b8353b612c2925461c956fddc8",
-        "version" : "3.4.0"
-      }
-    },
-    {
       "identity" : "nuke",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/kean/Nuke.git",
+      "location" : "https://github.com/kean/Nuke",
       "state" : {
-        "revision" : "a002b7fd786f2df2ed4333fe73a9727499fd9d97",
-        "version" : "10.11.2"
-      }
-    },
-    {
-      "identity" : "nukeui",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/kean/NukeUI",
-      "state" : {
-        "branch" : "main",
-        "revision" : "7338ed8ea76de18598bfafbca0cbdc74300a6b10"
+        "revision" : "f67266f176af4add9f7a7020486826d82d562473",
+        "version" : "12.1.2"
       }
     }
   ],

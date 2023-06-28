@@ -130,7 +130,7 @@ struct ImageItemView: View {
     var body: some View {
         GeometryReader { reader in
             ZStack {
-                LazyImage(source: ImageRequest(url: URL(string: item.imageUrl)!)) { state in
+                LazyImage(request: ImageRequest(stringLiteral: item.imageUrl)) { state in
                     if state.isLoading {
                         Rectangle().fill(Color.gray.opacity(0.5))
                     } else if let image = state.image {
