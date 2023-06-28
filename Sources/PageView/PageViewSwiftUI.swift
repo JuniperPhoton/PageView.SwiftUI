@@ -91,7 +91,6 @@ public struct PageView<Content: View, Data: RandomAccessCollection>: View where 
         self.scrollSlop = scrollSlop
         self.animationDuration = animationDuration
         self.onPageTranslationChanged = onPageTranslationChanged
-        print("start page index \(pageIndex), disable paging \(disablePaging)")
     }
     
     private func calculateDisplayItems(originalIndex: Int) {
@@ -110,8 +109,6 @@ public struct PageView<Content: View, Data: RandomAccessCollection>: View where 
                 displayedItems.append(items[index])
             }
         }
-        
-        print("calculateDisplayItems \(start)...\(end), from items \(items.count) virtualPageIndex \(virtualPageIndex), current input \(originalIndex)")
     }
     
     public var body: some View {
@@ -189,9 +186,7 @@ public struct PageView<Content: View, Data: RandomAccessCollection>: View where 
                 }
                 newVirtualIndex = index
             }
-            
-            print("on gesture end newVirtualIndex: \(newVirtualIndex), from virtualPageIndex \(virtualPageIndex)")
-            
+                        
             self.virtualPageIndex = newVirtualIndex
             self.translationX = 0
             
@@ -205,6 +200,7 @@ public struct PageView<Content: View, Data: RandomAccessCollection>: View where 
             
             self.onPageTranslationChanged?(translation)
             
+            // TODO Use new withAnimation API in iOS 17/macOS 14 to get the exact moment when the animation ends.
             DispatchQueue.main.asyncAfter(deadline: .now() + animationDuration) {
                 withEastOutAnimation(duration: animationDuration) {
                     calculateDisplayItems(originalIndex: nextOriginalIndex)
